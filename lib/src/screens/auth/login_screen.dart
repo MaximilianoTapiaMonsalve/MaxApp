@@ -18,7 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.black.withAlpha(223),
+        foregroundColor: Colors.white,
         title: Text(widget.title),
       ),
       body: SafeArea(
@@ -34,8 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   size: 150,
                 ),
 
+                const SizedBox(height: 10),
+
                 // welcome back
                 const Text("Welcome back!"),
+
+                const SizedBox(height: 15),
 
                 //Email texfield
                 LoginTextField(
@@ -44,12 +49,38 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: false,
                 ),
 
+                const SizedBox(height: 20),
+
                 //Password textfield
                 LoginTextField(
                   textEditingController: passwordController,
                   hintText: 'Password',
                   obscureText: true,
                 ),
+
+                const SizedBox(height: 40),
+
+                //Login Button
+                LoginButton(
+                  text: 'Log in',
+                  onPressed: () {
+                    //log in
+                  },
+                ),
+                const SizedBox(height: 40),
+                //Register
+                Row(
+                  children: [
+                    const Text("Not registered? "),
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Text(
+                        "Register now",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  ],
+                )
               ],
             ),
           ),
