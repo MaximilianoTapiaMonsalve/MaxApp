@@ -67,7 +67,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     //log in
                   },
                 ),
+
                 const SizedBox(height: 40),
+
                 //Register
                 Row(
                   children: [

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:maxapp/src/screens/screens.dart';
+import 'package:maxapp/src/providers/providers.dart';
+import 'package:maxapp/src/services/services.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -7,12 +9,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MaxApp',
-      theme: ThemeData(
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<FirebaseAuthProvider>(
+          create: (_) => FirebaseAuthProvider(),
+        )
+      ],
+      child: MaterialApp(
+        theme: ThemeData(useMaterial3: true),
+        debugShowCheckedModeBanner: false,
+        home: const AuthGate(),
       ),
-      home: const LoginScreen(title: 'MaxApp'),
     );
   }
 }
